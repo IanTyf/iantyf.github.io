@@ -1,0 +1,12 @@
+A much needed break
+
+Design thoughts:
+This was made on a Monday night during final's week. I wanted to capture the feeling of wanting to take a break so badly yet couldn't because of all the work, and instead of making players feel the same pressure, I decided to make a game that would calm myself and others who might be in a similar situation.
+The constraint I gave myself was it had to be short, so that I can finish it in 3 hours before bed and players can play in a minute. 
+It started with the simple idea of prompting the players to turn their heads left and right by rotating the texts they need to read. A similar thought then emerged that is to have the player stretch their fingers by holding Q and P at the same time. I had to prevent them from using both hands so an additional mouse button was added.
+The game could continue to be a sequence of these type of relaxing exercises but to me the physical break is not as important as a mental break, so I decided to ask the player to close their eyes and think about someone they love. The two issues here are: 1. I won't be able to tell if the player actually closes their eyes, and 2. especially if they find this section too cheesy. For me, the first one isn't really a huge problem but it does get awkward if they do finish thinking and open their eyes and see that 30 seconds haven't passed. So what I did was to show that they have 30 seconds, but the internal timer to move on is actually about 15. This makes it faster to get through for those who find it cheesy, and for those who actually close their eyes and spend some time they wouldn't notice a difference anyways.
+I was gonna end here but it felt too warm and wholesome to be a place to ask them "now go back to work". So the final activity was introduced. It came from the idea of letting yourself out with what's bothering you. But in my mind the act of thinking about why I'm not happy and the courage of typing them out is more than enough. So while the game asks the player to type out why they're not happy today, the text that actually appears are just different face emojis. It's enough for them to know why they're not happy. They don't need to read it again. The emojis is also there to lighten the mood and makes it a light-hearted conclusion to the short but much needed break.
+
+
+Technical thoughts:
+(Nothing. It was literally made in 3 hours it was just animated texts).
