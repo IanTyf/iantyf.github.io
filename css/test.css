@@ -1,0 +1,243 @@
+html{
+	scroll-padding-top:  95px;
+	scroll-behavior: smooth;
+}
+
+.normalLink{
+	text-decoration: none;
+	color: black;
+}
+.normalLink:visited{
+	color: black;
+}
+.underlineLink{
+	text-decoration: underline;
+	color: black;
+}
+.underlineLink:visited{
+	color: black;
+}
+.menuLink{
+	text-decoration: none;
+	color: black;
+}
+.menuLink:visited{
+	color: black;
+}
+.menuLink:hover{
+	background-color: rgba(0, 200, 200, 1.0);
+}
+.grid-container{
+	width: 100%;
+	background-color: rgba(255,255,255, 1.0);
+	display: grid;
+	grid-template-columns: 11fr 2fr 2fr 15fr;
+	margin-top: -10px;
+	padding-top: 20px;
+	padding-bottom: 27px;
+	padding-left: 1em;
+	padding-right: 1em;
+	font-size: 1em;
+
+	position: fixed;
+	z-index: 0;
+
+	border-bottom: 1px dotted black;
+
+	background-color: white;
+}
+.grid-item{
+	background-color: rgba(240, 240, 240, 0.0);
+	border:  0px solid rgba(0,0,0,1);
+	font-size: 1.5em;
+	padding-right: 1.5em;
+	font-family: 'Work Sans', sans-serif;
+}
+
+.menu-content-container{
+	display: grid;
+	grid-template-columns: 27% 7% 11% 50%;
+
+	padding-top: 4.5em;
+}
+
+.menu-container{
+	max-width: 100%;
+
+	width: 100%;
+
+
+	position: sticky;
+	top: 7em;
+	height: 5em;
+	box-sizing: border-box;
+
+	margin-left: 3em;
+}
+
+.menu-container-padding-selected{
+	padding-left: 5px;
+	padding-right: 5px;
+
+	padding-top: 10px;
+
+	margin-top: -10px;
+
+	background-color: white;
+	font-family: 'Work Sans', sans-serif;
+
+	border: 2.5px dotted black;
+	height: 190px;
+
+	overflow-x: hidden;
+  	overflow-y: auto;
+
+  	z-index: 5;
+}
+
+.menu-container-padding-selected > hr{
+	border-top: 1px dotted black;
+}
+
+.menu-container-padding-technical{
+	padding-left: 5px;
+	padding-right: 5px;
+
+	padding-top: 10px;
+
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-top: 20px;
+
+	background-color: white;
+	font-family: 'Work Sans', sans-serif;
+
+	border: 2.5px dotted black;
+	height: 150px;
+
+	overflow-x: hidden;
+  	overflow-y: auto;
+
+  	z-index: 1;
+  	background-color: white;
+
+}
+
+.menu-container-padding-technical > hr{
+	border-top: 1px dotted black;
+}
+
+.menu-container-padding-prototypes{
+	padding-left: 5px;
+	padding-right: 5px;
+
+	padding-top: 10px;
+
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-top: 20px;
+
+	background-color: white;
+	font-family: 'Work Sans', sans-serif;
+
+	border: 2.5px dotted black;
+	height: 350px;
+	width: 94%;
+
+	overflow-x: hidden;
+  	overflow-y: auto;
+
+}
+
+.menu-container-padding-prototypes > hr{
+	border-top: 1px dotted black;
+}
+
+.menu{
+	display: grid;
+	grid-template-columns: 2fr 5.5fr 14.5fr 7fr;
+	margin-top: -6px;
+	margin-bottom: -6px;
+
+	background-color: rgba(0, 0, 0, 0.0);
+}
+.menu:hover{
+	background-color: rgba(200, 200, 200, 1.0);
+}
+.menu-prototype{
+	display: grid;
+	grid-template-columns: 7fr 14.5fr 6fr;
+	margin-top: -6px;
+	margin-bottom: -6px;
+
+	background-color: rgba(0, 0, 0, 0.0);
+}
+.menu-prototype:hover{
+	background-color: rgba(200, 200, 200, 1.0);
+}
+.menu-special{
+	display: grid;
+	grid-template-columns: 2fr 5.5fr 15.5fr 6fr;
+	margin-top: -6px;
+	margin-bottom: -6px;
+
+	background-color: rgba(0, 0, 0, 0.0);
+}
+.menu-special:hover{
+	background-color: rgba(200, 200, 200, 1.0);
+}
+.menu-item{
+	font-size: 0.8em;
+	font-family: 'Work Sans', sans-serif;
+	padding-right: 1em;
+	margin-top: auto;
+	margin-bottom: auto;
+}
+
+.content-container{
+	max-width: 100%;
+	margin-top: 0.5em;
+	padding-right: 25%;
+	font-family: 'Work Sans', sans-serif;
+
+	border-right: 1px dotted black;
+}
+.content-container-padding{
+	padding-left: 10px;
+	padding-right: 10px;
+}
+.content-img{
+	width: 49%;
+	display: inline-block;
+}
+.basic-info{
+	display: inline-block; float: right;
+	margin-top: 0px;
+	width: 50%;
+	border-width: 2px;
+	/*border-style: solid;*/
+	height: 150px;
+	position: relative;
+	z-index: -5;
+}
+
+.basic-info > p{
+	margin-bottom: 0em;
+	margin-top: 0.5em;
+}
+
+.thoughts{
+	border: solid;
+	border-width: 0px;
+	text-align: justify;
+	column-count: 2;
+	column-rule: 1px dashed black;
+	column-fill: balance;
+	column-gap: 25px;
+}
+.thoughts > p{
+	margin-top: 0px;
+}
+footer{
+	font-family: 'Work Sans', sans-serif;
+}
