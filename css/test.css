@@ -6,9 +6,14 @@ html{
 .normalLink{
 	text-decoration: none;
 	color: black;
+
+	padding: 0.2em;
 }
 .normalLink:visited{
 	color: black;
+}
+.normalLink:hover{
+	border: 2px dotted black;
 }
 .underlineLink{
 	text-decoration: underline;
@@ -31,7 +36,7 @@ html{
 	width: 100%;
 	background-color: rgba(255,255,255, 1.0);
 	display: grid;
-	grid-template-columns: 11fr 2fr 2fr 15fr;
+	grid-template-columns: 9.5fr 2fr 2fr 16.5fr;
 	margin-top: -10px;
 	padding-top: 20px;
 	padding-bottom: 27px;
@@ -82,12 +87,13 @@ html{
 	padding-top: 10px;
 
 	margin-top: -10px;
+	margin-right: -20px;
 
 	background-color: white;
 	font-family: 'Work Sans', sans-serif;
 
 	border: 2.5px dotted black;
-	height: 190px;
+	height: 200px;
 
 	overflow-x: hidden;
   	overflow-y: auto;
@@ -113,7 +119,7 @@ html{
 	font-family: 'Work Sans', sans-serif;
 
 	border: 2.5px dotted black;
-	height: 150px;
+	height: 160px;
 
 	overflow-x: hidden;
   	overflow-y: auto;
@@ -166,7 +172,7 @@ html{
 }
 .menu-prototype{
 	display: grid;
-	grid-template-columns: 7fr 14.5fr 6fr;
+	grid-template-columns: 7fr 15.5fr 5fr;
 	margin-top: -6px;
 	margin-bottom: -6px;
 
@@ -177,7 +183,7 @@ html{
 }
 .menu-special{
 	display: grid;
-	grid-template-columns: 2fr 5.5fr 15.5fr 6fr;
+	grid-template-columns: 2fr 5.5fr 13.5fr 8fr;
 	margin-top: -6px;
 	margin-bottom: -6px;
 
@@ -186,12 +192,26 @@ html{
 .menu-special:hover{
 	background-color: rgba(200, 200, 200, 1.0);
 }
+.menu-technical{
+	display: grid;
+	grid-template-columns: 2fr 20.5fr 7fr;
+	margin-top: -6px;
+	margin-bottom: -6px;
+
+	background-color: rgba(0, 0, 0, 0.0);
+}
+.menu-technical:hover{
+	background-color: rgba(200, 200, 200, 1.0);
+}
 .menu-item{
 	font-size: 0.8em;
 	font-family: 'Work Sans', sans-serif;
 	padding-right: 1em;
 	margin-top: auto;
 	margin-bottom: auto;
+
+	padding-top: 0.2em;
+	padding-bottom: 0.2em;
 }
 
 .content-container{
@@ -225,13 +245,18 @@ html{
 	position: relative;
 	z-index: -5;
 
-	font-size: 0.8em;
+	font-size: 0.9em;
 	border: 0px solid black;
 }
 
 .basic-info > p{
 	margin-bottom: 0em;
 	margin-top: 0.5em;
+}
+
+.intro > p{
+	font-size: 0.9em;
+	line-height: 1.4;
 }
 
 .thoughts{
