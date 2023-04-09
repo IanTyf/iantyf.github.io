@@ -434,8 +434,30 @@
 						"You're a child at a bus stop. Fell asleep. Missed your ride. But you found this mysterious sketchbook on the ground..."</i>
 						</p>
 						<p>
-						Lime Juice is a chill, third-person adventure game about being a child and exploring imaginary worlds by realizing drawings from a sketchbook. It blends 2D drawings and animations with 3D environments to create spaces that feel imaginative, fantastic, and weird.
+						Lime Juice is a relaxing, third-person adventure game about being a child and exploring imaginary worlds by realizing drawings from a sketchbook. It blends 2D drawings and animations with 3D environments to create spaces that feel imaginative, fantastic, and weird.
 						</p>
+						<p class="myRole">
+							Ian manages the production schedule, roadmap, and asset workflow, and works on major technical aspects of the game, including implementation of tools, core systems, and content. He also co-designs the gameplay interactions and narrative hints.
+						</p>
+						<br>
+
+						<img src="imgs/limejuice_2.png" class="content-img-wide">
+						<div class="imgText">
+							<i>street</i>
+						</div>
+						<br>
+
+						<img src="imgs/limejuice_3.png" class="content-img-wide">
+						<div class="imgText">
+							<i>underwater</i>
+						</div>
+						<br>
+
+						<img src="imgs/limejuice_4.png" class="content-img-wide">
+						<div class="imgText">
+							<i>dark hallway</i>
+						</div>
+						<br>
 					</div>
 					
 					<br>
@@ -443,29 +465,46 @@
 					<div style="margin-bottom: -0.25em">Design Thoughts</div>
 					<hr align="left" style="width: 15%">
 					<div class="thoughts">
-						<p>This is more of a retro, since it's one of those games where the emergent behaviors just completely overwhelmed my intentions, and I've spent a lot of time thinking about them...
-Initially, under the prompt "cement", I wanted to create a shared graveyard experience where players silently and anonymously walk alongside each other and, when they're ready, press space to die and leave a message on their grave. Other players will then be able to read them, and because it takes time to travel back to where they died, they'll be more careful and thoughtful with the messages they leave.</p>
-							<p>But that's totally not how the game is being played. In fact, players are interacting with it in much, much more expressive, heartwarming, and heartbreaking ways.</p>
-							<p>Because of the asynchronous nature of the graveyard, it has become a social place where players write messages - not always for each other, some for themselves - and leave. it's become a place where they make jokes, say hellos, complain about life, and more. it exists in a weird middleground between saying what they normally wouldn't say, and writing what they normally wouldn't write online. it might be due to the anonymity, or the dying theme, or just the fact that it's a videogame.</p>
-							<p>Reading the messages people leave has now become part of my daily routine. it's my version of twitter, but even more depressing, since they actually mean what they say, or at least it appears so. i'm happy for the person who said "things are finally going well", feel for those who're going through depression, and glad to see an lgbtqia+ corner taking form.</p>
-							<p>But it's also a weird feeling because I didn't mean to provide this safe space. i'm seeing people that need help but i can't help them; i'm hearing voices that should be heard by more but they're not; i want to know who they are, but i can't and maybe shouldn't. It's such a weird feeling to be behind all of this.</p>
-							<p>Something fun that is worth mentioning is since i didn't want a border for the yard, players are allowed to walk into the darkness. It was expected that players might try to find peace in a quieter, less crowded place, but it has sort of turned into a mysterious mission thing where some would hide messages and leave hints for others to find. probably one of the more interesting and evocative gameplay that happened.</p>
+						<p>
+							This project went through 9 iterations, some with completely different directions. Being a thesis project of four, we all agreed to contribute equally to the design and creative directions, which while making everything four times harder to agree on, has taught us how to work effectively and productively as a group of designers and developers. The importance of setting clear creative challenges and design pillars that we can always refer to as well as almost aggressively playtesting and iterating really came through and has formed the basis of this game's development cycle.
+						</p>
+						<p>
+							Since we set out to create more of an experience and a series of delightful moments, a lot of our design challenges revolved around setting expectations for players. We would often get playtest feedback that starts with misunderstandings of the game's intention, such as "how can I make him character happy", when the player is intended to embody and play as the character, and "how many puzzles are left", when the game really isn't about being a hardcore puzzle game, but rather a series of interactions to experience.
+						</p>
+						<p>
+							Part of dealing with this comes down to clearly communicating the game's intention, which we've done a lot through visual storytelling. For example, by switching to a first-person perspective and adding thought bubbles, as well as normalizing the emotions that the 2D character shows in response to player input, we've managed to inform the player that they're the child and their actions are controlling the child's imagination, without being explicit about it using text.
+						</p>
+						<p>
+							But the other part, and arguably more interesting part of it is trying to meet player expectations when they make sense. While we've made numerous attempts to "de-puzzle-lize" the game and make it a more relaxing experience, ultimately we realized that our core experience, which is the delightful "aha!" moments from putting sketches to the right place with the right order, wouldn't be as fun without the little bit of time and struggle beforehand. That has then led to our development and iterations of our "hint" system, which is done through a narrative approach where if the player is stuck, the player character would talk about how they feel about the sketch he's holding, which serves as an indirect clue to the player. This is intended to help with making the mental connection between the sketches and the 3D environment, without breaking the immersion and "puzzle-lize" the game, and on top of that we also have a more gamey and magical aid that indicates if the player is close by transforming the sketches to look more like the target object.
+						</p>
 
 					</div>
-				<br>
-				<br>
-				<br>
-				<div style="margin-bottom: -0.25em">Technical Thoughts</div>
-					<hr align="left" style="width: 15%">
-					<div class="thoughts">
-						<p>I love google sheets. </p>
-						<p>Prototyping networking games is always a headache, but this time I found something that worked surprisingly well, and has been used in some other games by my friends.</p>
-						<p>Essentially it's using google sheets as a database and server, and web requests from unity to read and write data to the sheet. by "server" it means we can put formulas that parse and organize the data sent to it and store them in separate sheets to make them easier to retrieve. The only caveat is I had to use google form for writing data which gets sent to a spreadsheet anyways, because of an api update google did earlier. 
-						<p>Mine currently has over 40000 rows and still not lagging.</p>
-						<p>You can read more about it here.</p>
 
+					<br>
+					<br>
+					<br>
+
+					<div style="margin-bottom: -0.25em">Technical Thoughts</div>
+						<hr align="left" style="width: 15%">
+						<div class="thoughts">
+							<p>Thanks to our previous prototypes, going into production we had a clear idea of what our workflow could look like. That allowed us to think ahead and build tools to optimize it.</p>
+							<p>
+								Since we're working with multiple 2D animations interacting with each other at different timings, which results in lots of branching, it's important for us to be able to preview the interaction as the artists work on the drawings. While in drawing softwares it's possible to do with layers, Unity doesn't actually allow previewing multiple animations in the scene view. It would be a great hassle if artists need to ask help from programmers to implement the animations every single time if they want to try something and then adjust based on how it looks in-game.
+							</p>
+							<img src="imgs/multianim_1.png">
+							<p>
+								So I made an editor window that takes unlimited gameobjects and each with a corresponding animation clip. Artists can then play and preview all the animations in the scene view or compare timings by dragging the sliders or entering the exact frame number. It works seamlessly with Unity's built-in animator component so they can adjust the curves and key frames on the side and immediately see the results.
+							</p>
+							<p>
+								The other part that's worth mentioning is the code structure of the project. Since the functionalities of the sketches on the sketchbook are all the same, they all share the same draggableUI script with easy-to-read settings. But because each animation behaves differently, we need to implement each one with their own behavior script. I wrote an Anim parent script that handles all the triggering and universal behaviors such as hiding/showing corresponding 3D objects, appear/disappear events, etc, and contains all the necessary reference fields. This way our programmers can focus just on the specific animation behaviors and not worry about anything else.
+							</p>
+							<img src="imgs/limejuice_5.png">
+							<p>
+								Lastly, inspired by many PC port of big console titles, we added controller support that seamlessly transitions from the mouse cursor to the controller cursor, using Unity's new input system and a virtual mouse.
+							</p>
+
+						</div>
 					</div>
-				</div>
 
 					<div style="height: 25em;"></div>
 					<br>
@@ -517,34 +556,85 @@ Initially, under the prompt "cement", I wanted to create a shared graveyard expe
 
 				<div>
 					<hr align="left" style="width: 50%" id="SECONDHAND">
-					<img src="imgs/thesecondhand_1.png" class="content-img">
-					<p><b>Title:</b> The Second Hand</p>
-					<p><b>Genre:</b> Puzzle</p>
-					<p><b>Worked on:</b> Lead Programming, Mechanics Design, Level Design</p>
-					<p><b>Worked with:</b> Cameron Gonzalez, Lorg An, Tassneen Bashir</p>
-					<p><b>Download:</b> <a href="https://iantyf.itch.io/thesecondhand" target="_blank" class="underlineLink">iantyf.itch.io/thesecondhand</a></p>
+					<div>
+						<img src="imgs/thesecondhand_0.png" class="content-img">
+						<div class="basic-info">
+							<p><b>Title:</b> The Second Hand</p>
+							<p><b>Genre:</b> Narrative Puzzle</p>
+							<p><b>Role:</b> Gameplay Designer, Level Designer, Lead Programmer</p>
+							<p><b>With:</b> Cameron Gonzalez, Lorg An, Tassneen Bashir</p>
+							<p style="bottom: 0px; position: absolute;"><b>Download:</b> <a href="https://iantyf.itch.io/thesecondhand" target="_blank" class="underlineLink">iantyf.itch.io/thesecondhand</a></p>
+						</div>
+					</div>
 					<br>
-					<p>
-						The second hand is a puzzle adventure game where the player tries to rewrite a story through manipulating time. The player plays as the spirit of the former owner of this antique clock shop, and gets to possess all the clocks in the shop and manipulate both the display time on each clock and the actual time in the world. The player gets to experience the story through multiple angles from different clocks, and use his limited abilities on the clocks to affect how the story unfolds. 
-					</p>
+					<div class="intro">
+						<p>
+							The second hand is a puzzle adventure game where the player tries to rewrite a story through manipulating time. The player plays as the spirit of the former owner of this antique clock shop, and gets to possess all the clocks in the shop and manipulate both the display time on each clock and the actual time in the world. The player gets to experience the story through multiple angles from different clocks, and use his limited abilities on the clocks to affect how the story unfolds. 
+						</p>
+						<p class="myRole">
+							Ian works on designing the core time manipulation mechanic, as well as the implementation of all the systems, including branching narrative and controller input.
+						</p>
+						<br>
 
-					<img src="imgs/thesecondhand_2.png" class="content-img">
-					<p style="text-align: center; margin-top: 0em; font-style: italic;">
-						rewind mechanic
-					</p>
+						<video class="content-img-wide" controls>
+							<source src="files/SecondHandPlaythrough.mp4" type="video/mp4">
+						</video>
+						<div class="imgText">
+							<i>playthrough</i>
+						</div>
+						<br>
 
-					<p>
-						The puzzle element in the game is intended to be light, so that the player may choose to only be a spectator and leave the story as is. It also means that the puzzling shouldn't be punishing at all - the player should be able to freely revisit past dialogues, try different actions, without having to load a save point or restart the game. 
-					</p>
-					<p>
-						Therefore, the game features a special rewind/fastforward system, which allows the player to go back and forward in time whenever and however much they want. It is implemented through an event-based system with a tree structure, that keeps track of all the decisions made and animations that has been triggered so far. When the player chooses to rewind, it backtracks and plays all animations in reverse order with a negative speed. This minimizes data storage and ensures perfect rewinding that can be triggered and stopped at any point.
-					</p>
+						<img src="imgs/thesecondhand_2.png" class="content-img-wide">
+						<div class="imgText">
+							<i>rewind mechanic</i>
+						</div>
+						<br>
+
+						<img src="imgs/thesecondhand_3.png" class="content-img-wide">
+						<div class="imgText">
+							<i>opening narrative</i>
+						</div>
+						<br>
+					</div>
+
+					<br>
+
+					<div style="margin-bottom: -0.25em">Design Thoughts</div>
+					<hr align="left" style="width: 15%">
+					<div class="thoughts">
+						<p>
+							Usually puzzle games are punishing - if you can't solve it then you either find hints or be stuck forever. We wanted to create a narrative puzzle experience where, even if the player doesn't take any action and be a spectator, the story still unfolds. In the meantime, we then empower players with interactions that can alter how the story goes. As a clock, the player is able to do typical actions like ringing and moving the clock hand, which has an impact on how the story goes (eg. if you decide to wake someone up or not). They can also switch onto different clocks to gain a new perspective and move around the space. 
+						</p>
+						<p>
+							But during playtest we noticed that player often missed crucial decision points. So in order to keep this being a laid back experience, and to fit the theme, we designed this mechanic where player can freely go back and forth in time. This not only allows them to revisit past dialogues that they might have missed, but also intentionally go back to decision points and try a different action. 
+						</p>
+						<p>
+							What's really special about this particular rewinding system is that, since the player is attached to a clock, if the clock gets moved over time, the player moves with it. So if a customer comes in, who has a watch on his wrist, the player can then possess the watch and rewind, to see where this customer came from. This opens up a huge possibility space for design as the player will be able to travel through both time and space with this one mechanic, but it also means we need to be very careful with our scope. We ended up not exploring this direction too much, but it's definitely worth revisiting in the future.
+						</p>
+					</div>
+
+					<br>
+					<br>
+					<br>
 					
+					<div style="margin-bottom: -0.25em">Technical Thoughts</div>
+					<hr align="left" style="width: 15%">
+					<div class="thoughts">
+						<p>
+							Very early on we've decided to use the controller as the input, since the joysticks resemble the feeling of turning clock hands. But the challenge that come with it was to figure out an accurate algorithm to switch between highlighted clocks on the screen. Usually there are multiple clocks scattered on different parts of the screen, and as the player pushes the left joystick to any direction, it should switch to the most reasonable clock.
+						</p>
+						<p>
+							The solution I arrived at was to use a process similar to ray-marching. The idea is to first sort all the visible clocks on the screen by their screen-space distance to the current clock. Then, iterate through the list and shoot a ray from the current clock towards the direction of the joystick push, by a distance that is equal to the screen-space distance between this clock and our current clock, say D. Then, from the end point of this ray, check if any clock is within the radius of D. If so, pick the closest one; if not, move on to the next clock in the list. If we couldn't find one, it will just stay on the current clock.
+						</p>
+						<img src="imgs/thesecondhand_4.png">
+						<p>
+							The other part that was tricky is how to handle branching narrative that is rewindable. For all the character animations and animation sequences, they are implemented through an event-based system with a tree structure, that keeps track of all the decisions made and animations that has been triggered so far. When the player chooses to rewind, it backtracks and plays all animations in reverse order with a negative speed. This minimizes data storage and ensures perfect rewinding that can be triggered and stopped at any point.
+						</p>
+						<p>
+							The other part is to do the same with subtitles. It didn't really make sense to handle subtitles like animations, so we build a separate system to handle reading from excel, parsing, and playing character-by-character so that they can be rewinded smoothly. 
+						</p>
 
-					<img src="imgs/thesecondhand_3.png" class="content-img">
-					<p style="text-align: center; margin-top: 0em; font-style: italic;">
-						opening narrative
-					</p>
+					</div>
 				</div>
 
 

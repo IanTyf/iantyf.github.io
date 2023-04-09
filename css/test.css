@@ -234,6 +234,9 @@ html{
 	height: 180px;
 	border: 2px dotted black;
 }
+.content-img-wide{
+	width: 100%;
+}
 .basic-info{
 	display: inline-block; float: right;
 	margin-top: 0px;
@@ -254,9 +257,20 @@ html{
 	margin-top: 0.5em;
 }
 
+.intro{
+
+}
+
 .intro > p{
 	font-size: 0.9em;
 	line-height: 1.4;
+}
+.myRole {
+	color: grey;
+}
+.imgText{
+	text-align: center; 
+	font-size: 0.7em
 }
 
 .thoughts{
@@ -272,6 +286,9 @@ html{
 }
 .thoughts > p{
 	margin-top: 0px;
+}
+.thoughts > img{
+	width: 100%;
 }
 footer{
 	font-family: 'Work Sans', sans-serif;

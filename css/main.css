@@ -130,6 +130,9 @@ html{
 	width: 49%;
 	display: inline-block;
 }
+.content-img-wide{
+	width: 10%;
+}
 .basic-info{
 	display: inline-block; float: right;
 	width: 50%;
