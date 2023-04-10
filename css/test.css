@@ -232,7 +232,9 @@ html{
 
 	object-fit: cover;
 	height: 180px;
-	border: 2px dotted black;
+	border: 0px dotted black;
+
+	border-radius: 0.6em;
 }
 .content-img-wide{
 	width: 100%;
@@ -264,6 +266,9 @@ html{
 .intro > p{
 	font-size: 0.9em;
 	line-height: 1.4;
+}
+.intro > img {
+	border: 1px dotted black;
 }
 .myRole {
 	color: grey;
