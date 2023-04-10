@@ -268,7 +268,17 @@ html{
 	line-height: 1.4;
 }
 .intro > img {
-	border: 1px dotted black;
+	border: 1px solid black;
+	width: 98%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+.intro > video {
+	width: 98%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
 }
 .myRole {
 	color: grey;
