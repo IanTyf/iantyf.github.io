@@ -279,6 +279,8 @@ html{
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
+
+	z-index: -1;
 }
 .myRole {
 	color: grey;
@@ -309,15 +311,19 @@ code {
 	font-family: Consolas,"courier new";
   	color: #7A7A7A;
   	background-color: #f1f1f1;
-  	padding: 2px;
-  	font-size: 105%;
+  	padding: 5px;
+  	font-size: 50%;
   	display: block;
   	white-space: pre-wrap;
+
+  	-moz-tab-size:    4; /* Firefox 4+ */
+    -o-tab-size:      4; /* Opera 11.5 & 12.1 only */
+    tab-size:         4; /* Chrome 21+, Safari 6.1+, Opera 15+ */
 }
-pre {
+.pre {
 	font-family: Consolas,"courier new";
-  	color: #7A7A7A;
-  	background-color: #f1f1f1;
+  	color: #d6d6d6;
+  	background-color: #2e2e2e;
   	padding: 5px;
   	font-size: 50%;
   	white-space: pre-wrap;
