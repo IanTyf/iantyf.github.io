@@ -238,6 +238,13 @@ html{
 }
 .content-img-wide{
 	width: 100%;
+	cursor: pointer;
+}
+.content-video-wide{
+	width: 100%;
+}
+.img-thoughts{
+	cursor: pointer;
 }
 .basic-info{
 	display: inline-block; float: right;
@@ -320,17 +327,30 @@ code {
     -o-tab-size:      4; /* Opera 11.5 & 12.1 only */
     tab-size:         4; /* Chrome 21+, Safari 6.1+, Opera 15+ */
 }
-.pre {
-	font-family: Consolas,"courier new";
-  	color: #d6d6d6;
-  	background-color: #2e2e2e;
-  	padding: 5px;
-  	font-size: 50%;
-  	white-space: pre-wrap;
+.largeImage{
+	background-color: rgba(0,0,0,0);
+	position: fixed;
+	width: 99%;
+	height: 99%;
+	z-index: -100;
+	padding: 0px;
+	margin: 0px;
 
-  	-moz-tab-size:    4; /* Firefox 4+ */
-    -o-tab-size:      4; /* Opera 11.5 & 12.1 only */
-    tab-size:         4; /* Chrome 21+, Safari 6.1+, Opera 15+ */
+	text-align: center;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.largeImageContainer{
+	height: 85%;
+	width: 85%;
+	border: 0px solid black;
+}
+.largeImageContainer > img{
+	background-color: rgba(1,1,1,0);
+	height: 100%;
+	object-fit: cover;
 }
 footer{
 	font-family: 'Work Sans', sans-serif;

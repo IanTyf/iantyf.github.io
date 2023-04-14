@@ -12,6 +12,11 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/monokai_sublime.css">
 </head>
 <body>
+	<div class="largeImage">
+		<div class="largeImageContainer">
+			<img src="" id="largeImage">
+		</div>
+	</div>
 	<!--Nav Bar-->
 	<div class="grid-container">
 		<div class="grid-item" style="text-align: left;">
@@ -147,13 +152,13 @@
 					</div>
 				</a>
 				<hr>
-				<a href="#SECONDHAND" class="menuLink">
+				<a href="#SHEETNETWORK" class="menuLink">
 					<div class="menu-technical">
 						<div class="menu-item">
 							2022
 						</div>
 						<div class="menu-item">
-							Making networked prototype with ease in Unity with Google Sheets
+							Making networked prototypes with ease in Unity with Google Sheets
 						</div>
 						<div class="menu-item" style="text-align: right; padding-right: 0em;">
 							Tools/Plugin,
@@ -163,10 +168,10 @@
 					</div>
 				</a>
 				<hr>
-				<a href="#CONTINUE" class="menuLink">
+				<a href="#UNITYTRICKS" class="menuLink">
 					<div class="menu-technical">
 						<div class="menu-item">
-							2023
+							2023<br>2021
 						</div>
 						<div class="menu-item">
 							Niche Unity Tricks Collection
@@ -517,14 +522,14 @@
 							<p>
 								Since we're working with multiple 2D animations interacting with each other at different timings, which results in lots of branching, it's important for us to be able to preview the interaction as the artists work on the drawings. While in drawing softwares it's possible to do with layers, Unity doesn't actually allow previewing multiple animations in the scene view. It would be a great hassle if artists need to ask help from programmers to implement the animations every single time if they want to try something and then adjust based on how it looks in-game.
 							</p>
-							<img src="imgs/multianim_1.png">
+							<img src="imgs/multianim_1.png" class="img-thoughts">
 							<p>
-								So I made an editor window that takes unlimited gameobjects and each with a corresponding animation clip. Artists can then play and preview all the animations in the scene view or compare timings by dragging the sliders or entering the exact frame number. It works seamlessly with Unity's built-in animator component so they can adjust the curves and key frames on the side and immediately see the results.
+								So I made an editor window that takes unlimited gameobjects and each with a corresponding animation clip. Artists can then play and preview all the animations in the scene view or compare timings by dragging the sliders or entering the exact frame number. It works seamlessly with Unity's built-in animator component so they can adjust the curves and key frames on the side and immediately see the results. Read more about it <a href="#MULTIANIM" class="underlineLink">here</a>
 							</p>
 							<p>
 								The other part that's worth mentioning is the code structure of the project. Since the functionalities of the sketches on the sketchbook are all the same, they all share the same draggableUI script with easy-to-read settings. But because each animation behaves differently, we need to implement each one with their own behavior script. I wrote an Anim parent script that handles all the triggering and universal behaviors such as hiding/showing corresponding 3D objects, appear/disappear events, etc, and contains all the necessary reference fields. This way our programmers can focus just on the specific animation behaviors and not worry about anything else.
 							</p>
-							<img src="imgs/limejuice_5.png">
+							<img src="imgs/limejuice_5.png" class="img-thoughts">
 							<p>
 								Lastly, inspired by many PC port of big console titles, we added controller support that seamlessly transitions from the mouse cursor to the controller cursor, using Unity's new input system and a virtual mouse.
 							</p>
@@ -565,7 +570,7 @@
 						</div>
 						<br>
 
-						<video class="content-img-wide" style="height: 300px;" controls>
+						<video class="content-video-wide" style="height: 300px;" controls>
 							<source src="files/eswim_2.mp4" type="video/mp4">
 						</video>
 						<div class="imgText">
@@ -573,7 +578,7 @@
 						</div>
 						<br>
 
-						<video class="content-img-wide" style="height: 300px;" controls>
+						<video class="content-video-wide" style="height: 300px;" controls>
 							<source src="files/eswim_1.mp4" type="video/mp4">
 						</video>
 						<div class="imgText">
@@ -673,7 +678,7 @@
 						</p>
 						<br>
 
-						<video class="content-img-wide" controls>
+						<video class="content-video-wide" controls>
 							<source src="files/SecondHandPlaythrough.mp4" type="video/mp4">
 						</video>
 						<div class="imgText">
@@ -723,7 +728,7 @@
 						<p>
 							The solution I arrived at was to use a process similar to ray-marching. The idea is to first sort all the visible clocks on the screen by their screen-space distance to the current clock. Then, iterate through the list and shoot a ray from the current clock towards the direction of the joystick push, by a distance that is equal to the screen-space distance between this clock and our current clock, say D. Then, from the end point of this ray, check if any clock is within the radius of D. If so, pick the closest one; if not, move on to the next clock in the list. If we couldn't find one, it will just stay on the current clock.
 						</p>
-						<img src="imgs/thesecondhand_4.png">
+						<img src="imgs/thesecondhand_4.png" class="img-thoughts">
 						<p>
 							The other part that was tricky is how to handle branching narrative that is rewindable. For all the character animations and animation sequences, they are implemented through an event-based system with a tree structure, that keeps track of all the decisions made and animations that has been triggered so far. When the player chooses to rewind, it backtracks and plays all animations in reverse order with a negative speed. This minimizes data storage and ensures perfect rewinding that can be triggered and stopped at any point.
 						</p>
@@ -912,7 +917,7 @@ Initially, under the prompt "cement", I wanted to create a shared graveyard expe
 				<br>
 
 				<div class="intro">
-					<video class="content-img-wide" style="height: 300px;" controls>
+					<video class="content-video-wide" style="height: 300px;" controls>
 						<source src="files/multianim.mp4" type="video/mp4">
 					</video>
 					<br>
@@ -936,6 +941,153 @@ In Unity, the organic way to achieve this is to set up the animations and hit pl
 					</p>
 					<p>
 						<b>Solution:</b><br> The idea is to make an editor tool that does the preview of multiple animations in scene-view. The interesting design choice here is how detailed or fully-functional this tool should be, given that Unity already has a pretty powerful animation tool that allows for keyframe and curve adjustments. For our need, the features we need to this tool includes:
+					</p>
+					<p>
+						&emsp;-&ensp;be able to select multiple gameobjects, and assign animation clips to each
+
+					</p>
+					<p>
+						&emsp;-&ensp;be able to play and preview all or certain animations together
+
+					</p>
+					<p>
+						&emsp;-&ensp;be able to adjust the animation timeline and play from different places
+
+					</p>
+					<p>
+						&emsp;-&ensp;be able to pause and reset
+
+					</p>
+					<p>
+						&emsp;-&ensp;be able to adjust the animations in Unity’s animation window, and immediately preview the result here
+
+					</p>
+					<p>
+						The last one is sort of given by design, since we’re directly using animation clips, which can be edited and saved in Unity’s animation window.
+					</p>
+					<br>
+					<p>
+						The first thing is to create an Editor window, which is fairly straightforward with Unity’s EditorWindow class.
+					</p>
+					<pre class="code-block">public class MultiAnimPreview: EditorWindow {</pre>
+					<p>
+						The buttons are made with EditorGUI and GUILayout classes. Here’s an example of making toggle and button in OnGUI:
+					</p>
+					<pre class="code-block">
+GUILayout.BeginHorizontal(EditorStyles.toolbar);
+
+EditorGUI.BeginChangeCheck();
+GUILayout.Toggle(AnimationMode.InAnimationMode(), "Animate", EditorStyles.toolbarButton);
+
+if (EditorGUI.EndChangeCheck())
+{
+	ToggleAnimationMode();
+	Debug.Log(AnimationMode.InAnimationMode());
+}
+
+if (GUILayout.Button("Add", EditorStyles.toolbarButton))
+{
+	AddAnim();
+}</pre>
+					<p>
+						In order to support an unlimited number of animations, we hold all the objects in a list, and iterate through them. For better usability, everytime a gameobject is selected, a field for selecting the animation clip appears. After the clip is selected, the slider and loop toggle appears. This way the window isn’t too crowded before anything is added.
+					</p>
+					<pre class="code-block">
+foreach (Anim anim in anims)
+{
+	EditorGUILayout.BeginHorizontal();
+	EditorGUIUtility.labelWidth = 55f;
+	// a toggle for whether this animation should be played
+	anim.selected = EditorGUILayout.Toggle("selected", anim.selected, new GUILayoutOption[]{});
+	// a field for selecting gameObject
+	anim.gameObject = EditorGUILayout.ObjectField(anim.gameObject, typeof(GameObject), true) as GameObject;
+	EditorGUILayout.EndHorizontal();
+	// if a gameObject is selected, display another field for selecting animation clip
+	if (anim.gameObject != null)
+	{
+		anim.clip = EditorGUILayout.ObjectField(anim.clip, typeof(AnimationClip), false) as AnimationClip;
+		// if an animation clip is selected, display other settings
+		if (anim.clip != null)
+		{
+		float startTime = 0.0f;
+		float stopTime = anim.clip.length;
+
+		EditorGUILayout.BeginHorizontal();
+		// a toggle for whether this clip should be looped when played
+		anim.isLooping = EditorGUILayout.Toggle("looping", anim.isLooping);
+		// a slider to adjust the animation timeline
+		anim.time = EditorGUILayout.Slider(anim.time, startTime, stopTime);
+		// a quick field to show current frame #
+		EditorGUILayout.IntField(Mathf.FloorToInt(anim.time * 60), new GUILayoutOption[] {GUILayout.Width(30f)}); 
+		EditorGUILayout.EndHorizontal();
+		}
+		else if (AnimationMode.InAnimationMode())  AnimationMode.StopAnimationMode();
+	}
+
+	DrawUILine(Color.gray);
+}</pre>
+					<p>
+						The rest is fairly simple. We sample the animation clip by the time we save in Update, which gets incremented during play. The only thing worth noting here is to do a repaint for both the window and the sceneView to view the results.
+					</p>
+					<pre class="code-block">
+AnimationMode.BeginSampling();
+foreach (Anim anim in anims)
+{
+	if (anim.gameObject == null || anim.clip == null) continue;
+
+	Animator animator = anim.gameObject.GetComponent<Animator>();
+	if (animator != null && animator.runtimeAnimatorController == null)
+	{
+		//do nothing
+	}
+	else
+	{
+		AnimationMode.SampleAnimationClip(anim.gameObject, anim.clip, anim.time);
+	}
+	Repaint();
+}
+AnimationMode.EndSampling();
+
+SceneView.RepaintAll();</pre>
+					<br>
+				</div>
+				<p class="myRole">source code: <a href="https://github.com/IanTyf/Tech-Stuff/blob/main/MultiAnimPreview.cs" target="_blank" class="underlineLink">Link</a></p>
+
+				<div style="height: 25em;"></div>
+				<br>
+
+
+
+				<hr align="left" style="width: 50%" id="SHEETNETWORK">
+				<h2>Making networked prototypes with ease in Unity with Google Sheets</h2>
+				<p><i>A simple solution to achieve asynchronous networking in Unity with Google Sheets and Web Requests (and Google Forms!).</i></p>
+				<p class="myRole">step-by-step walkthrough: <a href="https://docs.google.com/document/d/1793Pc2QUscgI4F5DM1T5kmNcpAIuLEOALsgUnsnvFnw/edit?usp=sharing" target="_blank" class="underlineLink">Link</a></p>
+				<p>Ian initially came up with this for his game <a href="#GRAVEYARD" class="underlineLink">Self-Services Graveyard</a> in which players can create graves and leave messages on them, and others can see all the graves. He also used it in <a href="#SUMMONINGCIRCLE" class="underlineLink">Summoning Circle</a> for asynchronously uploading and pulling team data so that players are always fighting real-person teams instead of PvE presets.</p>
+				<p>It's' also used in two amazing games by <a href="https://jamschutz.itch.io/" class="underlineLink"><b>Joey</b></a>: <a href="https://jamschutz.itch.io/land-of-forgotten-souls" target="_blank" class="underlineLink">The Land of Forgotten Souls</a> and <a href="https://jamschutz.itch.io/pipsy-runner-3000" target="_blank" class="underlineLink">Pipsy Runner 3000</a>.</p>
+				<br>
+
+				<div class="intro">
+					<h3>TL;DR</h3>
+					<p>
+						<b>Context:</b><br> Making networked games is always intimidating. After having bad experiences with many different networking solutions for Unity, I wanted to find a way to quickly set up networking and database for prototyping, and still have total control over everything that's happening.
+					</p>
+					<p>
+						<b>Solution:</b><br> Google Sheet is an amazing, natural server where we can easily use functions and scripting to parse and organize data. We can then use Web Requests to communicate between our C# scripts and our sheets to upload and retrieve all kinds of data as we wish.
+					</p>
+					<p>
+						<b>Retro / How to improve:</b><br> I want more devs to try this! But also worried about Google doing something to prevent this.. as it's techincally a hack. Also, it might be worth looking at direct requests to Sheets again instead of doing the around the world with Forms in the future.
+					</p>
+					<br>
+
+					<h3>Details</h3>
+					<p>
+						<b>Context:</b><br> I always love networked games, and want to make some, but setting up networking for prototyping has been a real headache. After trying to do it with multiple different Networking Solutions in Unity, such as Mirror, Fish-Net, Photon, and their official one, it's clear that they're not usually worth the time, and sometimes the money for servers, and reading through poorly written documentations is especially not ideal for prototyping. I want to find a way to quickly set up networking and have a database, and still have total control over everything that's happening through simple code.
+					</p>
+					<p>
+						<b>Solution:</b><br> I was taking a class about Spreadsheets with Alexander King, and it occured to me that Google Sheets is an amazing way to store data, because we can parse and organize them with functions and scripting however we want. So I looked at ways to programmatically retrieve data from Sheets, and naturally, we got Web Requests.
+					</p>
+					<p>
+						The 
 					</p>
 					<p>
 						&emsp;-&ensp;be able to select multiple gameobjects, and assign animation clips to each
@@ -1748,13 +1900,55 @@ SceneView.RepaintAll();</pre>
 
 
 <script>
-    	var preTags = document.getElementsByClassName('code-block');
-     	var size = preTags.length;
-	    for (var i=0; i < size; i++) { 
-	        preTags[i].innerHTML = '<code>'+preTags[i].innerHTML+'</code>'; // wrap content of pre tag in code tag
-	    }
-     	hljs.highlightAll(); // apply highlighting
-	</script>
+	var preTags = document.getElementsByClassName('code-block');
+ 	var size = preTags.length;
+    for (var i=0; i < size; i++) { 
+        preTags[i].innerHTML = '<code>'+preTags[i].innerHTML+'</code>'; // wrap content of pre tag in code tag
+    }
+ 	hljs.highlightAll(); // apply highlighting
+
+
+ 	var largeImage = document.getElementsByClassName('largeImage')[0];
+ 	largeImage.addEventListener("click", function(){
+ 		largeImage.style.backgroundColor = "rgba(0,0,0,0)";
+ 		largeImage.style.zIndex = -100;
+
+ 		var realLargeImage = document.getElementById('largeImage');
+		realLargeImage.src = "";
+		realLargeImage.style.backgroundColor = "rgba(1,1,1,0)";
+ 	});
+
+
+ 	//add onclick event to all the images with content-img class
+ 	var allContentImg = document.getElementsByClassName('content-img-wide');
+ 	for (var i=0; i<allContentImg.length; i++) {
+ 		allContentImg[i].addEventListener("click", function(evt){
+ 			console.log("hey");
+ 			var largeImage = document.getElementsByClassName('largeImage')[0];
+ 			largeImage.style.backgroundColor = "rgba(0,0,0,0.8)";
+ 			largeImage.style.zIndex = 100;
+
+ 			var realLargeImage = document.getElementById('largeImage');
+ 			realLargeImage.src = evt.target.src;
+ 			realLargeImage.style.backgroundColor = "rgba(1,1,1,1)";
+	 	});
+ 	}
+
+ 	//add onclick event to all the images with content-img class
+ 	var allContentImg = document.getElementsByClassName('img-thoughts');
+ 	for (var i=0; i<allContentImg.length; i++) {
+ 		allContentImg[i].addEventListener("click", function(evt){
+ 			console.log("hey");
+ 			var largeImage = document.getElementsByClassName('largeImage')[0];
+ 			largeImage.style.backgroundColor = "rgba(0,0,0,0.8)";
+ 			largeImage.style.zIndex = 100;
+
+ 			var realLargeImage = document.getElementById('largeImage');
+ 			realLargeImage.src = evt.target.src;
+ 			realLargeImage.style.backgroundColor = "rgba(1,1,1,1)";
+	 	});
+ 	}
+</script>
 
 
 </html>
