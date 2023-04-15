@@ -59,108 +59,56 @@ html{
 	font-family: 'Work Sans', sans-serif;
 }
 
-.emptySecond{
-	border-right: 1px dotted black; margin-top: 0.5em;
-}
-
 .menu-content-container{
 	display: grid;
-	grid-template-columns: 27% 7% 14% 46%;
+	grid-template-columns: 0% 0% 0% 100%;
 
 	padding-top: 4.5em;
+
+	max-height: 100px;
 }
 
 .menu-container{
-	max-width: 100%;
+	max-width: 0%;
 
-	width: 100%;
-
-
-	position: sticky;
-	top: 7em;
-	height: 5em;
-	box-sizing: border-box;
-
-	margin-left: 3em;
+	width: 0%;
+	max-height: 0%;
 }
 
 .menu-container-padding-selected{
-	padding-left: 5px;
-	padding-right: 5px;
-
-	padding-top: 10px;
-
-	margin-top: -10px;
-	margin-right: -20px;
-
-	background-color: white;
-	font-family: 'Work Sans', sans-serif;
-
-	border: 2.5px dotted black;
-	height: 200px;
-
-	overflow-x: hidden;
-  	overflow-y: auto;
-
-  	z-index: 5;
+	width: 0%;
+	color: transparent;
+	height: 0%;
 }
 
 .menu-container-padding-selected > hr{
-	border-top: 1px dotted black;
+	width: 0%;
+	height: 0%;
+	border: 0px;
 }
 
 .menu-container-padding-technical{
-	padding-left: 5px;
-	padding-right: 5px;
-
-	padding-top: 10px;
-
-	margin-left: 0px;
-	margin-right: 0px;
-	margin-top: 20px;
-
-	background-color: white;
-	font-family: 'Work Sans', sans-serif;
-
-	border: 2.5px dotted black;
-	height: 160px;
-
-	overflow-x: hidden;
-  	overflow-y: auto;
-
-  	z-index: 1;
-  	background-color: white;
-
+	width: 0%;
+	color: transparent;
+	height: 0%;
 }
 
 .menu-container-padding-technical > hr{
-	border-top: 1px dotted black;
+	width: 0%;
+	height: 0%;
+	border: 0px;
 }
 
 .menu-container-padding-prototypes{
-	padding-left: 5px;
-	padding-right: 5px;
-
-	padding-top: 10px;
-
-	margin-left: 0px;
-	margin-right: 0px;
-	margin-top: 20px;
-
-	background-color: white;
-	font-family: 'Work Sans', sans-serif;
-
-	border: 2.5px dotted black;
-	height: 350px;
-	width: 94%;
-
-	overflow-x: hidden;
-  	overflow-y: auto;
-
+	width: 0%;
+	height: 0%;
+	color: transparent;
 }
 
 .menu-container-padding-prototypes > hr{
-	border-top: 1px dotted black;
+	width: 0%;
+	height: 0%;
+	border: 0px;
 }
 
 .menu{
@@ -170,6 +118,8 @@ html{
 	margin-bottom: -6px;
 
 	background-color: rgba(0, 0, 0, 0.0);
+
+	color: transparent;
 }
 .menu:hover{
 	background-color: rgba(200, 200, 200, 1.0);
@@ -216,15 +166,22 @@ html{
 
 	padding-top: 0.2em;
 	padding-bottom: 0.2em;
+
+	color: transparent;
+	user-select: none;
 }
 
 .content-container{
 	max-width: 100%;
-	margin-top: 0.5em;
-	padding-right: 35%;
+	margin-top: 1em;
+	margin-left: 0.5em;
+	margin-right: 0.5em;
+	padding-right: 0%;
 	font-family: 'Work Sans', sans-serif;
 
-	border-right: 1px dotted black;
+	border-right: 0px dotted black;
+
+	max-height: 100px;
 }
 .content-container-padding{
 	padding-left: 10px;
