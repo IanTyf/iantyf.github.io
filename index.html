@@ -1221,6 +1221,86 @@ IEnumerator RetrieveRoundData(int roundNumber)
 				<br>
 
 
+
+				<hr align="left" style="width: 50%" id="UNITYTRICKS">
+				<h2>Niche Unity Tricks Collection</h2>
+				<p><i>A not-so-often updated list of weird things I've done in Unity that might be helpful to some others.</i></p>
+				<br>
+
+				<div class="intro">
+					<h3>1. Catching Ghost Sprites</h3>
+					<p>
+						Sometimes this happens after you drag a sprite around and Unity freaks out and loads for a few seconds:
+					</p>
+					<img src="imgs/unitytricks_1.png" class="content-img-wide">
+					<br>
+					<img src="imgs/unitytricks_2.png" class="content-img-wide">
+					<p>and the sprite object is nowhere to be found in the hierarchy. You can delete everything in the scene and it will still be there. This happened twice while we were making Lime Juice and we called them ghost sprites.</p>
+					<p>The reason it's hidden is actually not that mysterious: Unity has a hideFlag for all GameObjects that allows them to hide things in the hierarchy, eg. the scene camera, which makes a lot of sense. And that's what's happening to the ghost sprites. For some reason Unity would set them to hidden, and I wrote a simple Editor script to catch it:</p>
+					<pre class="code-block">
+using UnityEngine;
+using UnityEditor;
+
+public static class UnhideSprites
+{
+    [MenuItem("Benbees/UnhideGhostSprites", false, 3000)]
+    public static void Unhide()
+    {
+        GameObject[] allObj = GameObject.FindObjectsOfType<GameObject>();
+        foreach (GameObject obj in allObj)
+        {
+            if (obj.hideFlags == HideFlags.HideInHierarchy && obj.TryGetComponent(out SpriteRenderer sr))
+            {
+                obj.hideFlags = HideFlags.None;
+                Debug.Log(obj.name); //then we can look for this obj by name in the hierarchy
+            }
+        }
+    }
+}					</pre>
+				</div>
+
+				<div style="height: 5em;"></div>
+				<br>
+
+				<div class="intro">
+					<h3>2. Renaming list element without plug-ins</h3>
+					<p>
+						Oftentimes we want to populate a list of custom class in the Inspector, but the item name "element 0", "element 1", are very annoying because we would then have to expand each thing to see what's inside.
+					</p>
+					<img src="imgs/unitytricks_3.png" class="content-img-wide">
+					<div class="imgText">
+						<i>each item represents a unit tier, but Element 0 is confusing</i>
+					</div>
+					<p>
+						One common solution is to add a string field to the top of a custom class, and Unity would automatically rename the "element 0" to the value of this string. However, we would then have to go in and type them out one by one. Sometimes this is desireable when they each have unique names, but sometimes we just want something more reasonable than "element x" for our designers to look at.
+					</p>
+					<p>
+						My way of achieving this is to create a string field but put [HideInInspector] attribute on it, and then in OnValidate, which gets called everytime a new list item is added, go through the list and set the string value.
+					</p>
+					<pre class="code-block">
+[System.Serializable]
+public class UnitTier
+{
+    [HideInInspector]
+    public string key;
+    public List<UnitProfile> units;
+}
+
+public void OnValidate()
+{
+    for (int i = 0; i < activeUnits.Count; i++)
+    {
+        activeUnits[i].key = "Tier " + (i+1).ToString();
+    }
+}
+					</pre>
+					<img src="imgs/unitytricks_4.png" class="content-img-wide">
+				</div>
+
+				<div style="height: 25em;"></div>
+				<br>
+
+
 				<hr align="left" style="width: 50%" id="SUMMONINGCIRCLE">
 				<div>
 					<!--
