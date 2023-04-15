@@ -556,6 +556,7 @@
 					</div>
 					<br>
 					<div class="intro">
+						<p><b>Download:</b> <a href="https://iantyf.itch.io/eswim" target="_blank" class="underlineLink">iantyf.itch.io/eswim</a></p>
 						<p>
 							eSwim is a networked competitive swimming tug-of-war game where players need to physically brush over their keyboards and pretend to be swimming.
 						</p>
@@ -1035,7 +1036,7 @@ foreach (Anim anim in anims)
 {
 	if (anim.gameObject == null || anim.clip == null) continue;
 
-	Animator animator = anim.gameObject.GetComponent<Animator>();
+	Animator animator = anim.gameObject.GetComponent&ltAnimator&gt();
 	if (animator != null && animator.runtimeAnimatorController == null)
 	{
 		//do nothing
@@ -1109,7 +1110,7 @@ SceneView.RepaintAll();</pre>
 						The rest was quite straightforward: pack data in Unity, format them and send via post request to our form. Surprisingly, retrieving them afterwards is a lot simpler, as this time we can use the Sheets API directly to get JSON from our Sheets.
 					</p>
 					<pre class="code-block">
-IEnumerator SendUnitData(List<unitData> unitDatas, int roundNumber)
+IEnumerator SendUnitData(List&ltunitData&gt unitDatas, int roundNumber)
 {
     string postUri = "can't show this sorry";
     string gameVer_e = "entry.827620170";
@@ -1246,7 +1247,7 @@ public static class UnhideSprites
     [MenuItem("Benbees/UnhideGhostSprites", false, 3000)]
     public static void Unhide()
     {
-        GameObject[] allObj = GameObject.FindObjectsOfType<GameObject>();
+        GameObject[] allObj = GameObject.FindObjectsOfType&ltGameObject&gt();
         foreach (GameObject obj in allObj)
         {
             if (obj.hideFlags == HideFlags.HideInHierarchy && obj.TryGetComponent(out SpriteRenderer sr))
@@ -1283,7 +1284,7 @@ public class UnitTier
 {
     [HideInInspector]
     public string key;
-    public List<UnitProfile> units;
+    public List&ltUnitProfile&gt units;
 }
 
 public void OnValidate()

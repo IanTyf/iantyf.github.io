@@ -45,7 +45,7 @@ html{
 	font-size: 1em;
 
 	position: fixed;
-	z-index: 0;
+	z-index: 10;
 
 	border-bottom: 1px dotted black;
 
@@ -255,7 +255,7 @@ html{
 	/*border-style: solid;*/
 	height: 180px;
 	position: relative;
-	z-index: -5;
+	z-index: 5;
 
 	font-size: 0.9em;
 	border: 0px solid black;
