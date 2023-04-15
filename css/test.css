@@ -235,7 +235,8 @@ html{
 	display: inline-block;
 
 	object-fit: cover;
-	height: 180px;
+	height: 19.5vh;
+	min-height: 180px;
 	border: 0px dotted black;
 
 	border-radius: 0.6em;
@@ -261,7 +262,7 @@ html{
 	position: relative;
 	z-index: 5;
 
-	font-size: 0.9em;
+	font-size: 0.8em;
 	border: 0px solid black;
 }
 
