@@ -1061,9 +1061,9 @@ SceneView.RepaintAll();</pre>
 				<hr align="left" style="width: 50%" id="SHEETNETWORK">
 				<h2>Making networked prototypes with ease in Unity with Google Sheets</h2>
 				<p><i>A simple solution to achieve asynchronous networking in Unity with Google Sheets and Web Requests (and Google Forms!).</i></p>
-				<p class="myRole">step-by-step walkthrough: <a href="https://docs.google.com/document/d/1793Pc2QUscgI4F5DM1T5kmNcpAIuLEOALsgUnsnvFnw/edit?usp=sharing" target="_blank" class="underlineLink">Link</a></p>
-				<p>Ian initially came up with this for his game <a href="#GRAVEYARD" class="underlineLink">Self-Services Graveyard</a> in which players can create graves and leave messages on them, and others can see all the graves. He also used it in <a href="#SUMMONINGCIRCLE" class="underlineLink">Summoning Circle</a> for asynchronously uploading and pulling team data so that players are always fighting real-person teams instead of PvE presets.</p>
-				<p>It's' also used in two amazing games by <a href="https://jamschutz.itch.io/" class="underlineLink"><b>Joey</b></a>: <a href="https://jamschutz.itch.io/land-of-forgotten-souls" target="_blank" class="underlineLink">The Land of Forgotten Souls</a> and <a href="https://jamschutz.itch.io/pipsy-runner-3000" target="_blank" class="underlineLink">Pipsy Runner 3000</a>.</p>
+				<p>step-by-step walkthrough: <a href="https://docs.google.com/document/d/1793Pc2QUscgI4F5DM1T5kmNcpAIuLEOALsgUnsnvFnw/edit?usp=sharing" target="_blank" class="underlineLink">Link</a></p>
+				<p class="myRole">Ian initially came up with this for his game <a href="#GRAVEYARD" class="underlineLink">Self-Services Graveyard</a> in which players can create graves and leave messages on them, and others can see all the graves. He also used it in <a href="#SUMMONINGCIRCLE" class="underlineLink">Summoning Circle</a> for asynchronously uploading and pulling team data so that players are always fighting real-person teams instead of PvE presets.</p>
+				<p class="myRole">It's also used in two amazing games by <a href="https://jamschutz.itch.io/" class="underlineLink"><b>Joey</b></a>: <a href="https://jamschutz.itch.io/land-of-forgotten-souls" target="_blank" class="underlineLink">The Land of Forgotten Souls</a> and <a href="https://jamschutz.itch.io/pipsy-runner-3000" target="_blank" class="underlineLink">Pipsy Runner 3000</a>.</p>
 				<br>
 
 				<div class="intro">
@@ -1075,7 +1075,7 @@ SceneView.RepaintAll();</pre>
 						<b>Solution:</b><br> Google Sheet is an amazing, natural server where we can easily use functions and scripting to parse and organize data. We can then use Web Requests to communicate between our C# scripts and our sheets to upload and retrieve all kinds of data as we wish.
 					</p>
 					<p>
-						<b>Retro / How to improve:</b><br> I want more devs to try this! But also worried about Google doing something to prevent this.. as it's techincally a hack. Also, it might be worth looking at direct requests to Sheets again instead of doing the around the world with Forms in the future.
+						<b>Retro / How to improve:</b><br> I want more devs to try this! But also worried about Google doing something to prevent this.. as it's technically a hack. Also, it might be worth looking at direct requests to Sheets again instead of doing the around the world with Forms in the future.
 					</p>
 					<br>
 
@@ -1084,121 +1084,138 @@ SceneView.RepaintAll();</pre>
 						<b>Context:</b><br> I always love networked games, and want to make some, but setting up networking for prototyping has been a real headache. After trying to do it with multiple different Networking Solutions in Unity, such as Mirror, Fish-Net, Photon, and their official one, it's clear that they're not usually worth the time, and sometimes the money for servers, and reading through poorly written documentations is especially not ideal for prototyping. I want to find a way to quickly set up networking and have a database, and still have total control over everything that's happening through simple code.
 					</p>
 					<p>
-						<b>Solution:</b><br> I was taking a class about Spreadsheets with Alexander King, and it occured to me that Google Sheets is an amazing way to store data, because we can parse and organize them with functions and scripting however we want. So I looked at ways to programmatically retrieve data from Sheets, and naturally, we got Web Requests.
+						<b>Solution:</b><br> I was taking a class about Spreadsheets with <a href="https://www.literallyaking.com/" target="_blank" class="underlineLink">Alexander King</a>, and it occurred to me that Google Sheets is an amazing way to store data, because we can parse and organize them with functions and scripting however we want. So I looked at ways to programmatically retrieve data from Sheets, so that we can treat them as a database. And naturally, we got Web Requests.
 					</p>
-					<p>
-						The 
-					</p>
-					<p>
-						&emsp;-&ensp;be able to select multiple gameobjects, and assign animation clips to each
-
-					</p>
-					<p>
-						&emsp;-&ensp;be able to play and preview all or certain animations together
-
-					</p>
-					<p>
-						&emsp;-&ensp;be able to adjust the animation timeline and play from different places
-
-					</p>
-					<p>
-						&emsp;-&ensp;be able to pause and reset
-
-					</p>
-					<p>
-						&emsp;-&ensp;be able to adjust the animations in Unity’s animation window, and immediately preview the result here
-
-					</p>
-					<p>
-						The last one is sort of given by design, since we’re directly using animation clips, which can be edited and saved in Unity’s animation window.
-					</p>
+					<img src="imgs/sheetnetwork_2.png" class="content-img-wide">
+					<div class="imgText">
+						<i>round 3 team data in Summoning Circle</i>
+					</div>
 					<br>
+
 					<p>
-						The first thing is to create an Editor window, which is fairly straightforward with Unity’s EditorWindow class.
+						The tricky thing was that after a recent update to the Sheets API in 2022, I wan't able to do post requests from within Unity. It might be that I misread the documentation, or did something wrong, but I had to figure out a workaround. Luckily, Google Forms has a built-in feature that automatically transfers form responses to a Google Sheet, and the Forms API haven't received any updates for a while, so... let's get digging!
 					</p>
-					<pre class="code-block">public class MultiAnimPreview: EditorWindow {</pre>
 					<p>
-						The buttons are made with EditorGUI and GUILayout classes. Here’s an example of making toggle and button in OnGUI:
+						Firstly, I needed a way to submit form responses through web request. Finding the post uri wasn't too complicated, as it is embedded in the Form url, but the specific response fields were a bit tricky to find. Eventually, I noticed that after clicking Send and if we inspect the webpage, we can see the entry id for each response entry, and that can be used for our post request!
 					</p>
-					<pre class="code-block">
-GUILayout.BeginHorizontal(EditorStyles.toolbar);
 
-EditorGUI.BeginChangeCheck();
-GUILayout.Toggle(AnimationMode.InAnimationMode(), "Animate", EditorStyles.toolbarButton);
-
-if (EditorGUI.EndChangeCheck())
-{
-	ToggleAnimationMode();
-	Debug.Log(AnimationMode.InAnimationMode());
-}
-
-if (GUILayout.Button("Add", EditorStyles.toolbarButton))
-{
-	AddAnim();
-}</pre>
-					<p>
-						In order to support an unlimited number of animations, we hold all the objects in a list, and iterate through them. For better usability, everytime a gameobject is selected, a field for selecting the animation clip appears. After the clip is selected, the slider and loop toggle appears. This way the window isn’t too crowded before anything is added.
-					</p>
-					<pre class="code-block">
-foreach (Anim anim in anims)
-{
-	EditorGUILayout.BeginHorizontal();
-	EditorGUIUtility.labelWidth = 55f;
-	// a toggle for whether this animation should be played
-	anim.selected = EditorGUILayout.Toggle("selected", anim.selected, new GUILayoutOption[]{});
-	// a field for selecting gameObject
-	anim.gameObject = EditorGUILayout.ObjectField(anim.gameObject, typeof(GameObject), true) as GameObject;
-	EditorGUILayout.EndHorizontal();
-	// if a gameObject is selected, display another field for selecting animation clip
-	if (anim.gameObject != null)
-	{
-		anim.clip = EditorGUILayout.ObjectField(anim.clip, typeof(AnimationClip), false) as AnimationClip;
-		// if an animation clip is selected, display other settings
-		if (anim.clip != null)
-		{
-		float startTime = 0.0f;
-		float stopTime = anim.clip.length;
-
-		EditorGUILayout.BeginHorizontal();
-		// a toggle for whether this clip should be looped when played
-		anim.isLooping = EditorGUILayout.Toggle("looping", anim.isLooping);
-		// a slider to adjust the animation timeline
-		anim.time = EditorGUILayout.Slider(anim.time, startTime, stopTime);
-		// a quick field to show current frame #
-		EditorGUILayout.IntField(Mathf.FloorToInt(anim.time * 60), new GUILayoutOption[] {GUILayout.Width(30f)}); 
-		EditorGUILayout.EndHorizontal();
-		}
-		else if (AnimationMode.InAnimationMode())  AnimationMode.StopAnimationMode();
-	}
-
-	DrawUILine(Color.gray);
-}</pre>
-					<p>
-						The rest is fairly simple. We sample the animation clip by the time we save in Update, which gets incremented during play. The only thing worth noting here is to do a repaint for both the window and the sceneView to view the results.
-					</p>
-					<pre class="code-block">
-AnimationMode.BeginSampling();
-foreach (Anim anim in anims)
-{
-	if (anim.gameObject == null || anim.clip == null) continue;
-
-	Animator animator = anim.gameObject.GetComponent<Animator>();
-	if (animator != null && animator.runtimeAnimatorController == null)
-	{
-		//do nothing
-	}
-	else
-	{
-		AnimationMode.SampleAnimationClip(anim.gameObject, anim.clip, anim.time);
-	}
-	Repaint();
-}
-AnimationMode.EndSampling();
-
-SceneView.RepaintAll();</pre>
+					<img src="imgs/sheetnetwork_1.png" class="content-img-wide">
+					<div class="imgText">
+						<i>found ya</i>
+					</div>
 					<br>
-				</div>
-				<p class="myRole">source code: <a href="https://github.com/IanTyf/Tech-Stuff/blob/main/MultiAnimPreview.cs" target="_blank" class="underlineLink">Link</a></p>
+
+					<p>
+						The rest was quite straightforward: pack data in Unity, format them and send via post request to our form. Surprisingly, retrieving them afterwards is a lot simpler, as this time we can use the Sheets API directly to get JSON from our Sheets.
+					</p>
+					<pre class="code-block">
+IEnumerator SendUnitData(List<unitData> unitDatas, int roundNumber)
+{
+    string postUri = "can't show this sorry";
+    string gameVer_e = "entry.827620170";
+    string round_e = "entry.1831171256";
+    string[] units_e = new string[] { 
+        "entry.1736156396",
+        "entry.1578800667",
+        "entry.1463664841",
+        "entry.1686337605",
+        "entry.1308880010",
+        "entry.1361472423",
+        "entry.1975870708",
+        "entry.2106594634",
+        "entry.609185528",
+        "entry.967484768",
+        "entry.909024387",
+        "entry.1043298782"};
+    string level_e = "entry.422048610";
+
+    WWWForm form = new WWWForm();
+    form.AddField(gameVer_e, gameVer);
+    form.AddField(round_e, roundNumber.ToString());
+    for (int i=0; i&ltunitDatas.Count; i++)
+    {
+        form.AddField(units_e[i], unitDatas[i].ToString());
+    }
+    form.AddField(level_e, Services.teamManager.Level);
+
+    UnityWebRequest req = UnityWebRequest.Post(postUri, form);
+    yield return req.SendWebRequest();
+
+    if (req.result == UnityWebRequest.Result.ProtocolError || req.result == UnityWebRequest.Result.ConnectionError)
+    {
+        Debug.Log(req.error);
+    }
+    else if (req.result == UnityWebRequest.Result.Success)
+    {
+
+        Debug.Log("round data uploaded successfully");
+    }
+    else
+    {
+        Debug.Log("some other weird error");
+    }
+
+    req.Dispose();
+}
+					</pre>
+					<div class="imgText" style="margin-top: -10px;">
+						<i>example coroutine to send data</i>
+					</div>
+
+					<pre class="code-block">
+IEnumerator RetrieveRoundData(int roundNumber)
+{
+    string uri = "cant show this"
+        +roundNumber
+        +"?key=nor this";
+    UnityWebRequest req = UnityWebRequest.Get(uri);
+
+    yield return req.SendWebRequest();
+
+    if (req.result == UnityWebRequest.Result.ProtocolError || req.result == UnityWebRequest.Result.ConnectionError)
+    {
+        Debug.Log(req.error);
+        Services.opponentRoundManager.LoadDefaultOpponentTeam(roundNumber);
+    }
+    else if (req.result == UnityWebRequest.Result.Success)
+    {
+
+        Debug.Log("round data retrieved successfully");
+
+        // parse the json
+        var o = JSON.Parse(req.downloadHandler.text);
+        var teams = o["values"];
+
+        Services.opponentRoundManager.LoadOpponentTeam(teams);
+    }
+    else
+    {
+        Debug.Log("some other weird error");
+        Services.opponentRoundManager.LoadDefaultOpponentTeam(roundNumber);
+    }
+
+    req.Dispose();
+}
+					</pre>
+					<div class="imgText" style="margin-top: -10px;">
+						<i>example coroutine to get data</i>
+					</div>
+
+					<p>
+						What's also really convenient about using Sheets as the database is we can quickly do some data clean-up and organization directly in Google Sheets. For example, in the graveyard game I wanted players to be able to see each other's footsteps if someone else if playing at the same time. In Sheets, I can easily achieve that by using the filter function and filter by Timestamp:
+					</p>
+					<img src="imgs/sheetnetwork_3.png" class="content-img-wide">
+					<div class="imgText">
+						<i>all footsteps from the past 10 seconds</i>
+					</div>
+					<br>
+					<img src="imgs/sheetnetwork_4.png" class="content-img-wide">
+					<div class="imgText">
+						<i>another example to get certain rows with NOT and EXACT</i>
+					</div>
+					<p>
+						and in Unity, only get JSON from this particular sheet, so that we don't get any other useless data.
+					</p>
 
 				<div style="height: 25em;"></div>
 				<br>
