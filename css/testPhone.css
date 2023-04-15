@@ -188,7 +188,7 @@ html{
 	padding-right: 10px;
 }
 .content-img{
-	max-width: 400px;
+	max-width: 100%;
 	text-align: center;
 
 	object-fit: cover;
