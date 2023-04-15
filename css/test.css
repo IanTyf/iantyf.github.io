@@ -356,3 +356,14 @@ code {
 footer{
 	font-family: 'Work Sans', sans-serif;
 }
+
+.smallerAbout > p{
+	font-size: 0.9em;
+}
+.largerAbout{
+	border: 2px dotted black;
+	padding: 1em;
+}
+.largerAbout > p{
+	font-size: 0.9em;
+}
