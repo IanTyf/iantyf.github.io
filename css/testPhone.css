@@ -188,11 +188,11 @@ html{
 	padding-right: 10px;
 }
 .content-img{
-	width: 49%;
-	display: inline-block;
+	max-width: 400px;
+	text-align: center;
 
 	object-fit: cover;
-	height: 180px;
+	max-height: auto;
 	border: 0px dotted black;
 
 	border-radius: 0.6em;
@@ -208,13 +208,12 @@ html{
 	cursor: pointer;
 }
 .basic-info{
-	display: inline-block; float: right;
 	margin-top: 0px;
 	padding-left: 0.1em;
-	width: 48%;
+	width: 100%;
 	border-width: 2px;
 	/*border-style: solid;*/
-	height: 180px;
+	height: 130px;
 	position: relative;
 	z-index: 5;
 
@@ -262,7 +261,7 @@ html{
 	border: solid;
 	border-width: 0px;
 	text-align: justify;
-	column-count: 2;
+	column-count: 1;
 	column-rule: 1px dashed black;
 	column-fill: balance;
 	column-gap: 25px;
