@@ -36,10 +36,10 @@ html{
 	width: 100%;
 	background-color: rgba(255,255,255, 1.0);
 	display: grid;
-	grid-template-columns: 9.5fr 2fr 2fr 16.5fr;
+	grid-template-columns: 8fr 2fr 2fr 18fr;
 	margin-top: -10px;
 	padding-top: 20px;
-	padding-bottom: 27px;
+	padding-bottom: 25px;
 	padding-left: 1em;
 	padding-right: 1em;
 	font-size: 1em;
