@@ -24,10 +24,10 @@ html{
 }
 .menuLink{
 	text-decoration: none;
-	color: black;
+	color: transparent !important;
 }
 .menuLink:visited{
-	color: black;
+	color: transparent;
 }
 .menuLink:hover{
 	background-color: rgba(0, 200, 200, 1.0);
@@ -36,7 +36,7 @@ html{
 	width: 100%;
 	background-color: rgba(255,255,255, 1.0);
 	display: grid;
-	grid-template-columns: 9.5fr 2fr 2fr 16.5fr;
+	grid-template-columns: 10fr 1fr 1fr 1fr;
 	margin-top: -10px;
 	padding-top: 20px;
 	padding-bottom: 27px;
@@ -50,13 +50,17 @@ html{
 	border-bottom: 1px dotted black;
 
 	background-color: white;
+
+	align-items: center;
 }
 .grid-item{
 	background-color: rgba(240, 240, 240, 0.0);
 	border:  0px solid rgba(0,0,0,1);
-	font-size: 1.5em;
-	padding-right: 1.5em;
-	font-family: 'Work Sans', sans-serif;
+	font-size: 1rem;
+	padding-right: 1.5rem;
+	font-family: 'diatype-regular', sans-serif;
+	padding-top: auto;
+	padding-bottom: auto;
 }
 
 .menu-content-container{
@@ -77,14 +81,29 @@ html{
 
 .menu-container-padding-selected{
 	width: 0%;
-	color: transparent;
+	color: transparent !important;
 	height: 0%;
+
+	display: none;
 }
 
 .menu-container-padding-selected > hr{
 	width: 0%;
 	height: 0%;
 	border: 0px;
+}
+
+.menu-container-padding-selected > div{
+	color: transparent;
+}
+.menu-container-padding-selected > small{
+	color: transparent;
+}
+.menu-container-padding-selected > h2{
+	color: transparent;
+}
+.menu-container-padding-selected > h1{
+	color: transparent;
 }
 
 .menu-container-padding-technical{
@@ -326,4 +345,34 @@ footer{
 }
 .largerAbout > p{
 	font-size: 0.9em;
+}
+.title-img{
+	width: 100%;
+	cursor: pointer;
+	border: 1px solid black;
+
+	aspect-ratio: 16/9;
+	object-fit: cover;
+}
+.largerGrey{
+	color: rgba(0,0,0,0.4);
+	font-size: 1.1rem;
+}
+small{
+	font-size: 1rem;
+	color: rgba(62, 84, 120, 0.72);
+	line-height: 1.2;
+	font-family: 'work sans';
+}
+h2{
+	font-size:1.1rem;
+	line-height: 0.9;
+	color: rgba(0, 0, 0, 1);
+	font-weight: 500;
+}
+h1{
+	font-size:1.2rem;
+	line-height: 1.4;
+	color: rgba(0, 0, 0, 1);
+	font-weight: 500;
 }
