@@ -271,6 +271,14 @@ body{
 	aspect-ratio: 16/9;
 	object-fit: cover;
 }
+.title-img-small{
+	width: 80%;
+	cursor: pointer;
+	border: 1px solid black;
+
+	aspect-ratio: 16/9;
+	object-fit: cover;
+}
 .content-video-wide{
 	width: 100%;
 }
