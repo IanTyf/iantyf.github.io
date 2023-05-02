@@ -357,6 +357,26 @@ body{
 .thoughts > img{
 	width: 100%;
 }
+.thoughts-one{
+	border: solid;
+	border-width: 0px;
+	text-align: left;
+	column-count: 1;
+	column-rule: 1px dashed black;
+	column-fill: balance;
+	column-gap: 25px;
+
+	font-size: 0.9rem;
+}
+.thoughts-one > p{
+	margin-top: 0px;
+
+	color: rgba(0,0,0,0.8);
+	line-height: 1.4;
+}
+.thoughts-one > img{
+	width: 100%;
+}
 code {
 	font-family: Consolas,"courier new";
   	color: #7A7A7A;
