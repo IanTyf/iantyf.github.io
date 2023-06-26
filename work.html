@@ -434,7 +434,7 @@
 
 					<div style="margin-bottom: -0.25em">Design Thoughts</div>
 					<hr align="left" style="width: 15%">
-					<div class="thoughts">
+					<div class="thoughts-one">
 						<p>
 							Coming soon.
 						</p>
@@ -532,13 +532,13 @@
 							But the prompt "sink or swim" got me thinking about swimming, and sports in general. While it's a no-brainer that sports are games instead of the other way around, the debate between traditional sports and esports is a lot more interesting and worth thinking about. the classic "if i tell you the move and you move the pieces, who is playing chess" argument is so strong that to me the distinction seems inevitable, but from an anti-categorical thinking perspective it made me want to try and make something that sits comfortably in between: a digital game where you look at screens and use keyboards but everything else is plain physical.
 						</p>
 						<p>
-							Everything else that came afterwards are pretty straightforward designs, where the competitiveness is introduced because the game needs a funny and fast-paced gameplay to contrast with the rough input, and it's done through competitive multiplayer. I chose tug of war instead of other options like racing because it's generally a lot easier to scale and I want to keep the game about being physically superior, and things like racing can be a lot more nuanced. 
+							The rest are pretty straightforward designs, where the competitiveness is introduced because the game needs a funny and fast-paced gameplay to contrast with the rough input, and it's done through online multiplayer. I chose tug of war instead of other options like racing because it's generally a lot easier to scale and I want to keep the game about being physically superior, and things like racing can be a lot more nuanced. 
 						</p>
 						<p>
 							Right before the exhibition at GDC 2023 I added a few more quality of life changes, which raised surprisingly interesting topics that I hadn't thought of before.
 						</p>
 						<p>
-							I started thinking about playernames in games. in the exhibition since everyone will be looking at one screen, it's natural to allow players to name their little guys so that they don't get confused. but then it hit me that even just by asking the player to enter a name it's influencing quite a lot. some players might be bad at coming up with a name; most players don't want to use their real names; sometimes in rpg games it might pull them out of the immersion when other characters refer to them by the fake name they give to the main character, etc etc. whereas on the other hand the letters themselves often times doesn't really do anything. If we want to connect the player with the player character there is so much more we can do, and if I want the player to be able to tell who's who there are so many different ways to achieve that. naming just feels like a fake empowering process that is under-designed.
+							I started thinking about playernames in games. In the exhibition since everyone will be looking at one screen, it's natural to allow players to name their little guys so that they don't get confused. But then it hit me that even just by asking the player to enter a name it's influencing quite a lot. Some players might be bad at coming up with a name; most players don't want to use their real names; sometimes in rpg games it might pull them out of the immersion when other characters refer to them by the fake name they give to the main character, etc etc. Whereas on the other hand the letters themselves often times doesn't really do anything. If we want to connect the player with the player character there is so much more we can do, and if I want the player to be able to tell who's who there are so many different ways to achieve that. Naming just feels like a fake empowering process that is under-designed.
 						</p>
 						<p>
 							This is then unfortunately a part that I didn't get to discuss since I had little time making adjustments before the exhibition. I ended up adding a tiny detail where if the player is typing their name, the character also changes color based on the most recent letter they typed. So if they want to be referred to by a particular name, they'll have to live with the player color that comes with it, or else they need to find a different name that gives them a color they enjoy playing as. it totally didn't come through in the exhibition and is something i'll keep thinking about in the future.
@@ -625,7 +625,7 @@
 					<hr align="left" style="width: 15%">
 					<div class="thoughts">
 						<p>
-							Usually puzzle games are punishing - if you can't solve it then you either find hints or be stuck forever. We wanted to create a narrative puzzle experience where, even if the player doesn't take any action and be a spectator, the story still unfolds. In the meantime, we then empower players with interactions that can alter how the story goes. As a clock, the player is able to do typical actions like ringing and moving the clock hand, which has an impact on how the story goes (eg. if you decide to wake someone up or not). They can also switch onto different clocks to gain a new perspective and move around the space. 
+							Puzzles can be really punishing - if you can't solve them then you either find hints or be stuck for a while. We wanted to create a narrative puzzle experience where, even if the player doesn't take any action and be a spectator, the story still unfolds. In the meantime, we then empower players with interactions that can alter how the story goes. As a clock, the player is able to do typical actions like ringing and moving the clock hand, which has an impact on how the story goes (eg. if you decide to wake someone up or not). They can also switch onto different clocks to gain new perspectives and move around the space. 
 						</p>
 						<p>
 							But during playtest we noticed that player often missed crucial decision points. So in order to keep this being a laid back experience, and to fit the theme, we designed this mechanic where player can freely go back and forth in time. This not only allows them to revisit past dialogues that they might have missed, but also intentionally go back to decision points and try a different action. 
@@ -653,7 +653,7 @@
 							The other part that was tricky is how to handle branching narrative that is rewindable. For all the character animations and animation sequences, they are implemented through an event-based system with a tree structure, that keeps track of all the decisions made and animations that has been triggered so far. When the player chooses to rewind, it backtracks and plays all animations in reverse order with a negative speed. This minimizes data storage and ensures perfect rewinding that can be triggered and stopped at any point.
 						</p>
 						<p>
-							The other part is to do the same with subtitles. It didn't really make sense to handle subtitles like animations, so we build a separate system to handle reading from excel, parsing, and playing character-by-character so that they can be rewinded smoothly. 
+							Next was to do the same with subtitles. It didn't really make sense to handle subtitles like animations, so we build a separate system to handle reading from excel, parsing, and playing character-by-character so that they can be rewinded smoothly. 
 						</p>
 
 					</div>
@@ -731,8 +731,8 @@ Initially, under the prompt "cement", I wanted to create a shared graveyard expe
 				<hr align="left" style="width: 15%">
 				<div class="thoughts">
 					<p>I love google sheets. </p>
-					<p>Prototyping networking games is always a headache, but this time I found something that worked surprisingly well, and has been used in some other games by my friends.</p>
-					<p>Essentially it's using google sheets as a database and server, and web requests from unity to read and write data to the sheet. by "server" it means we can put formulas that parse and organize the data sent to it and store them in separate sheets to make them easier to retrieve. The only caveat is I had to use google form for writing data which gets sent to a spreadsheet anyways, because of an api update google did earlier. 
+					<p>Prototyping networked games has always been a headache, but this time I found something that worked surprisingly well, and has been used in some other games by my friends.</p>
+					<p>Essentially it's using google sheets as a database and server, and web requests from unity to read and write data to the sheet. By "server" it means we can put formulas that parse and organize the data sent to it and store them in separate sheets to make them easier to retrieve. The only caveat is I had to use google form for writing data which gets sent to a spreadsheet anyways, because of an api update google did earlier. 
 					<p>Mine currently has over 40000 rows and still not lagging.</p>
 					<p>You can read more about it <a href="#SHEETNETWORK" class="underlineLink">here</a>.</p>
 
