@@ -382,18 +382,24 @@
 					<small>Adventure, Puzzle</small>
 					<br>
 					<br>
-					<img src="imgs/limejuice_1.png" class="title-img">
+					<img src="imgs/limejuice_0.png" class="title-img">
 					<br>
 					<br>
 					<div style="line-height: 1.5;">
 						<small>Role: Producer, Technical Director, Game Designer</small><br>
 						<div>With: Daniel Liu, Hayley Lin, Jacob Zhai</div>
-						<div>Link: <span class="underlineLink">Coming Soon</span></div>	
+						<div>Link: <a href="https://iantyf.itch.io/limejuice" target="_blank" class="underlineLink">download</a></div>	
 					</div>
 					
 					
 					<br>
 					<div class="intro">
+						<p>Trailer (better with sound on):</p>
+						<video class="content-video-wide" style="height: 300px;" controls>
+							<source src="files/Lime-Juice_Trailer.mp4" type="video/mp4">
+						</video>
+						<br>
+
 						<p><i>
 						"You're a child at a bus stop. Fell asleep. Missed your ride. But you found this mysterious sketchbook on the ground..."</i>
 						</p>
@@ -430,16 +436,7 @@
 					<hr align="left" style="width: 15%">
 					<div class="thoughts">
 						<p>
-							This project went through 9 iterations, some with completely different directions. Being a thesis project of four, we all agreed to contribute equally to the design and creative directions, which while making everything four times harder to agree on, has taught us how to work effectively and productively as a group of designers and developers. The importance of setting clear creative challenges and design pillars that we can always refer to as well as almost aggressively playtesting and iterating really came through and has formed the basis of this game's development cycle.
-						</p>
-						<p>
-							Since we set out to create more of an experience and a series of delightful moments, a lot of our design challenges revolved around setting expectations for players. We would often get playtest feedback that starts with misunderstandings of the game's intention, such as "how can I make him character happy", when the player is intended to embody and play as the character, and "how many puzzles are left", when the game really isn't about being a hardcore puzzle game, but rather a series of interactions to experience.
-						</p>
-						<p>
-							Part of dealing with this comes down to clearly communicating the game's intention, which we've done a lot through visual storytelling. For example, by switching to a first-person perspective and adding thought bubbles, as well as normalizing the emotions that the 2D character shows in response to player input, we've managed to inform the player that they're the child and their actions are controlling the child's imagination, without being explicit about it using text.
-						</p>
-						<p>
-							But the other part, and arguably more interesting part of it is trying to meet player expectations when they make sense. While we've made numerous attempts to "de-puzzle-lize" the game and make it a more relaxing experience, ultimately we realized that our core experience, which is the delightful "aha!" moments from putting sketches to the right place with the right order, wouldn't be as fun without the little bit of time and struggle beforehand. That has then led to our development and iterations of our "hint" system, which is done through a narrative approach where if the player is stuck, the player character would talk about how they feel about the sketch he's holding, which serves as an indirect clue to the player. This is intended to help with making the mental connection between the sketches and the 3D environment, without breaking the immersion and "puzzle-lize" the game, and on top of that we also have a more gamey and magical aid that indicates if the player is close by transforming the sketches to look more like the target object.
+							Coming soon.
 						</p>
 
 					</div>
@@ -451,22 +448,8 @@
 					<div style="margin-bottom: -0.25em">Technical Thoughts</div>
 						<hr align="left" style="width: 15%">
 						<div class="thoughts">
-							<p>Thanks to our previous prototypes, going into production we had a clear idea of what our workflow could look like. That allowed us to think ahead and build tools to optimize it.</p>
-							<p>
-								Since we're working with multiple 2D animations interacting with each other at different timings, which results in lots of branching, it's important for us to be able to preview the interaction as the artists work on the drawings. While in drawing softwares it's possible to do with layers, Unity doesn't actually allow previewing multiple animations in the scene view. It would be a great hassle if artists need to ask help from programmers to implement the animations every single time if they want to try something and then adjust based on how it looks in-game.
-							</p>
-							<img src="imgs/multianim_1.png" class="img-thoughts">
-							<p>
-								So I made an editor window that takes unlimited gameobjects and each with a corresponding animation clip. Artists can then play and preview all the animations in the scene view or compare timings by dragging the sliders or entering the exact frame number. It works seamlessly with Unity's built-in animator component so they can adjust the curves and key frames on the side and immediately see the results. Read more about it <a href="#MULTIANIM" class="underlineLink">here</a>
-							</p>
-							<p>
-								The other part that's worth mentioning is the code structure of the project. Since the functionalities of the sketches on the sketchbook are all the same, they all share the same draggableUI script with easy-to-read settings. But because each animation behaves differently, we need to implement each one with their own behavior script. I wrote an Anim parent script that handles all the triggering and universal behaviors such as hiding/showing corresponding 3D objects, appear/disappear events, etc, and contains all the necessary reference fields. This way our programmers can focus just on the specific animation behaviors and not worry about anything else.
-							</p>
-							<img src="imgs/limejuice_5.png" class="img-thoughts">
-							<p>
-								Lastly, inspired by many PC port of big console titles, we added controller support that seamlessly transitions from the mouse cursor to the controller cursor, using Unity's new input system and a virtual mouse.
-							</p>
-
+							<p>An <a href="#MULTIANIM" class="underlineLink">editor tool</a> was made for this.<br>
+							More coming soon.</p>
 						</div>
 					</div>
 				</div>
